@@ -1,50 +1,20 @@
-# Thaali Rotation Manager
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Zone coordinator platform for managing thaali rotations, member rosters, and reminder emails.
+# Run and deploy your AI Studio app
 
-## What’s implemented
+This contains everything you need to run your app locally.
 
-- **Auth**: Google OAuth via NextAuth v5 + `SUPER_ADMIN_EMAIL` role
-- **Admin**: zones CRUD + coordinators allowlist (drives coordinator login)
-- **Coordinator**: dashboard, members, rotations calendar, notifications, auto-assign
-- **Email**: manual reminders (date range) via Resend + React Email template
-- **Cron**: Vercel Cron hits `/api/cron/reminders` hourly (acts at 09:00 UTC)
-- **Branding**: `public/logo.png` + `src/app/icon.png` + `src/app/opengraph-image.png`
+View your app in AI Studio: https://ai.studio/apps/e940c76d-8671-4937-8b7b-5ec86e8f9172
 
-## Local setup
+## Run Locally
 
-1) Install deps
+**Prerequisites:**  Node.js
 
-```bash
-npm install
-```
 
-2) Configure env
-
-```bash
-cp .env.example .env.local
-```
-
-Fill in:
-- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`
-- `NEXTAUTH_SECRET`, `NEXTAUTH_URL`
-- `SUPER_ADMIN_EMAIL`
-- `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (server-only), `SUPABASE_PUBLISHABLE_KEY`
-- `RESEND_API_KEY`, `FROM_EMAIL`
-- `CRON_SECRET` (optional, recommended)
-
-3) Run dev server
-
-```bash
-npm run dev
-```
-
-## Database
-
-- Schema + RLS migration lives at `supabase/migrations/20260506185832_init_schema.sql`.
-- Supabase project ref: `mrqhiirimirdoynvgimt` (Thaali Rotation Manager)
-
-## Deploy (Vercel)
-
-- `vercel.json` includes an hourly cron for `/api/cron/reminders`.
-- Set production env vars to match `.env.example`.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
